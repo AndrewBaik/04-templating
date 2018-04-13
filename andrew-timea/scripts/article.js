@@ -3,12 +3,6 @@
 let articles = [];
 
 function Article (rawDataObj) {
-  // this.author = rawDataObj.author;
-  // this.authorUrl = rawDataObj.authorUrl;
-  // this.title = rawDataObj.title;
-  // this.category = rawDataObj.category;
-  // this.body = rawDataObj.body;
-  // this.publishedOn = rawDataObj.publishedOn;
 
   for(let key in rawDataObj) {
     this[key] = rawDataObj[key];
@@ -16,7 +10,7 @@ function Article (rawDataObj) {
 }
 
 Article.prototype.toHtml = function() {
-  // TODO: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
+  // DONE: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
   let templates = $('#articles-temp').html();
   let renderTemp = Handlebars.compile(templates);
 
@@ -35,12 +29,11 @@ Article.prototype.toHtml = function() {
   //   this.publishStatus = '(draft)';
   // }
 
-  // TODO: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
+  // DONE: Use the method that Handlebars gave you to return your filled-in html template for THIS article.
   return renderTemp(this);
 };
 
 // COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
-// PUT YOUR RESPONSE HERE
 // (a,b) is a part of an arrow function inside the method and it contains multiple placeholders.
 
 rawData.sort((a,b) => {
